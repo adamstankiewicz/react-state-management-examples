@@ -50,6 +50,7 @@ function App() {
         {!isLoading && (
           <div style={{ display: 'flex' }}>
             <div style={{ flexBasis: '50%' }}>
+              {/* TODO: split out into remaining tasks compoonent */}
               <h2>Remaining</h2>
               <ul>
                 {tasks.remaining.map((task) => (
@@ -61,11 +62,12 @@ function App() {
               </ul>
             </div>
             <div>
+              {/* TODO: split out into completed tasks compoonent */}
               <h2>Completed</h2>
               <ul>
                 {tasks.completed.map((task) => (
                   <li key={task.id}>
-                    <input type="checkbox" id={task.id} value={task.title} />
+                    <input type="checkbox" id={task.id} value={task.title} onChange={() => dispatch({ type: 'SET_TASK_COMPLETED', id: taskId })} />
                     <label htmlFor={task.id}>{task.title}</label>
                   </li>
                 ))}

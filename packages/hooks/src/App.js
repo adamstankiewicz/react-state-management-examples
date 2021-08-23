@@ -67,7 +67,7 @@ function App() {
               <ul>
                 {tasks.completed.map((task) => (
                   <li key={task.id}>
-                    <input type="checkbox" id={task.id} value={task.title} onChange={() => dispatch({ type: 'SET_TASK_COMPLETED', id: taskId })} />
+                    <input type="checkbox" id={task.id} value={task.title} />
                     <label htmlFor={task.id}>{task.title}</label>
                   </li>
                 ))}

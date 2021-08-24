@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { TasksContext } from './App';
+import { TasksContext } from '../App';
 import Task from './Task';
 
 function RemainingTasks(props) {

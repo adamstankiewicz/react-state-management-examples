@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setRemainingTask } from './mainSlice';
+import { setRemainingTask } from '../data/reducer';
 import Task from './Task';
 
 function CompletedTasks({ props }) {

@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setTasks } from './todos/mainSlice';
+import { setTasks } from './data/reducer';
 
 import TaskList from './todos/TaskList';
 

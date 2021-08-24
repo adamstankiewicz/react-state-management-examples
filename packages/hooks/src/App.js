@@ -2,8 +2,8 @@ import {
   createContext, useReducer, useState, useEffect, useMemo
 } from 'react';
 
-import reducer, { initialState } from './reducer';
-import TaskList from './TaskList';
+import reducer, { initialState } from './data/reducer';
+import TaskList from './todos/TaskList';
 
 export const TasksContext = createContext();
 

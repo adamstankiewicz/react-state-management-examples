@@ -29,7 +29,7 @@ function App() {
       tasks,
       dispatch,
     }),
-    [tasks],
+    [tasks, dispatch],
   );
 
   return (

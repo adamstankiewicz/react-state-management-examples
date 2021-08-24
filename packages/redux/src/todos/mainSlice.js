@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Immer is used by reduxjs/toolkit hence we can write code that looks like mutating code here
+// STUDY NOTE: Immer is used by reduxjs/toolkit hence we can write code that looks like mutating code here
 export const tasksSlice = createSlice({
     name: 'tasks',
     initialState: { remaining: [], completed: [] },

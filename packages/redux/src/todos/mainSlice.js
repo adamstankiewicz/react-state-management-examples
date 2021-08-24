@@ -6,8 +6,8 @@ export const tasksSlice = createSlice({
     initialState: { remaining: [], completed: [] },
     reducers: {
         setTasks: (state, action) => {
-            state.completedTasks = action.payload.tasks.filter(task => task.completed);
-            state.remainingTasks = action.payload.tasks.filter(task => !task.completed);
+            state.completed = action.payload.tasks.filter(task => task.completed);
+            state.remaining = action.payload.tasks.filter(task => !task.completed);
         },
         completeTask: (state, action) => {
             const foundTask = state.remaining.find(task => task.id === action.id);

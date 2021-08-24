@@ -20,7 +20,13 @@ function App() {
       }
       fetchTasks();
     },
-    [],
+    [dispatch],
+    /**
+     * STUDY NOTE:
+     * the React hooks lint rules do not know that dispatch should be stable, and will warn that the dispatch variable should be added to
+     * dependency arrays for useEffect and useCallback.
+     * The simplest solution is to do just that:
+     */
   );
 
   return (

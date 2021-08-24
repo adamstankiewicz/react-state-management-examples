@@ -6,16 +6,22 @@ export const tasksSlice = createSlice({
     initialState: { remaining: [], completed: [] },
     reducers: {
         setTasks: (state, action) => {
-            state.completedTasks = action.payload.tasks.filter(task => task.completed);
-            state.remainingTasks = action.payload.tasks.filter(task => !task.completed);
+            state.completed = action.payload.tasks.filter(task => task.completed);
+            state.remaining = action.payload.tasks.filter(task => !task.completed);
         },
         completeTask: (state, action) => {
-            const foundTask = state.remaining.find(task => task.id === action.id);
-            state.completed = [...state.completed, { ...foundTask, completed: true }];
+            const foundTask = state.remaining.find(task => task.id === action.payload.id);
+            if (foundTask) {
+                state.completed = [...state.completed, { ...foundTask, completed: true }];
+                state.remaining = state.remaining.filter(task => task.id !== action.payload.id);
+            }
         },
         setRemainingTask: (state, action) => {
-            const foundTask = state.completed.find(task => task.id === action.id);
-            state.remaining = [...state.remaining, { ...foundTask, completed: false }];
+            const foundTask = state.completed.find(task => task.id === action.payload.id);
+            if (foundTask) {
+                state.remaining = [...state.remaining, { ...foundTask, completed: false }];
+                state.completed = state.completed.filter(task => task.id !== action.payload.id);
+            }
         }
     }
 });

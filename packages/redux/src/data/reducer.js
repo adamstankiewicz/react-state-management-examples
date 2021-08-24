@@ -9,7 +9,7 @@ export const tasksSlice = createSlice({
             state.completed = action.payload.tasks.filter(task => task.completed);
             state.remaining = action.payload.tasks.filter(task => !task.completed);
         },
-        completeTask: (state, action) => {
+        setCompletedTask: (state, action) => {
             const foundTask = state.remaining.find(task => task.id === action.payload.id);
             if (foundTask) {
                 state.completed = [...state.completed, { ...foundTask, completed: true }];
@@ -26,6 +26,10 @@ export const tasksSlice = createSlice({
     }
 });
 
-export const { setTasks, completeTask, setRemainingTask } = tasksSlice.actions;
+export const {
+    setTasks,
+    setCompletedTask,
+    setRemainingTask
+} = tasksSlice.actions;
 
 export default tasksSlice.reducer;

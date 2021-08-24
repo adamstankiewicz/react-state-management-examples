@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { completeTask } from '../data/reducer';
+import { setCompletedTask } from '../data/reducer';
 import Task from './Task';
 
 function RemainingTasks(props) {
@@ -17,7 +17,7 @@ function RemainingTasks(props) {
 
   const handleChange = (taskId, event) => {
     if (event.target.checked) {
-      dispatch(completeTask({ id: taskId }));
+      dispatch(setCompletedTask({ id: taskId }));
     }
   };
 

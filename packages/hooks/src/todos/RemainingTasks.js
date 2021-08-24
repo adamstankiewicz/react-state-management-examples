@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import { TasksContext } from '../App';
+import { setCompletedTask } from '../data/reducer';
 import Task from './Task';
 
 function RemainingTasks(props) {
@@ -8,7 +9,7 @@ function RemainingTasks(props) {
 
   const handleChange = (taskId, event) => {
     if (event.target.checked) {
-      dispatch({ type: 'SET_COMPLETED_TASK', id: taskId });
+      dispatch(setCompletedTask(taskId));
     }
   };
 

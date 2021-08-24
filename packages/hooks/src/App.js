@@ -2,7 +2,7 @@ import {
   createContext, useReducer, useState, useEffect, useMemo
 } from 'react';
 
-import reducer, { initialState } from './data/reducer';
+import reducer, { initialState, setTasks } from './data/reducer';
 import TaskList from './todos/TaskList';
 
 export const TasksContext = createContext();
@@ -16,7 +16,7 @@ function App() {
       async function fetchTasks() {
         const response = await fetch('https://jsonplaceholder.typicode.com/todos');
         const tasks = await response.json();
-        dispatch({ type: 'SET_TASKS', tasks });
+        dispatch(setTasks(tasks));
         setIsLoading(false);
       }
       fetchTasks();
